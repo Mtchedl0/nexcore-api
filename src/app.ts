@@ -12,7 +12,8 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/api", router);
 
-const frontendDist = path.join(import.meta.dirname, "..", "public");
+// CJS ბილდისთვის import.meta.dirname-ის ნაცვლად გამოიყენე __dirname
+const frontendDist = path.join(__dirname, "..", "public");
 if (existsSync(frontendDist)) {
   app.use(express.static(frontendDist));
   app.get(/.*/, (_req, res) => {
