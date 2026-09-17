@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "tsx ./src/index.ts",
-    "build": "npx tsx ./build.ts",
+    "build": "esbuild ./src/index.ts --bundle --platform=node --format=cjs --outfile=dist/index.cjs",
     "start": "node dist/index.cjs",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
